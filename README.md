@@ -8,11 +8,11 @@ bundle
 bundle exec rspec
 
 # Usage
-grid = Grid.new([
+grid = Graph::Grid.new([
   [8,2,4],
   [0,7,1],
   [3,7,9]
 ])
 
-Traverse.new(grid).longest_sequence  #=> 6
+Graph::Traverse.new(grid).longest_sequence  #=> 6
 ```
