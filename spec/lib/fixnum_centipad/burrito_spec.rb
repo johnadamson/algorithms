@@ -5,7 +5,7 @@ module FixnumCentipad
 
     describe '#children' do
       subject {
-        Burrito.new past, future, operators: operators
+        Burrito.new past: past, future: future, operators: operators
       }
       let(:past){
         '1'
@@ -42,7 +42,7 @@ module FixnumCentipad
 
     describe '#solution?' do
       subject {
-        Burrito.new past, future
+        Burrito.new past: past, future: future
       }
       let(:past){ '100' }
       let(:future){ [] }

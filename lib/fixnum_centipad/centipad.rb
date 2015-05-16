@@ -2,7 +2,7 @@ module FixnumCentipad
   class Centipad
     attr_reader :solutions
 
-    def initialize(range, opts={})
+    def initialize(range:, **opts)
       @input     = range.to_a
       @solutions = []
       @work      = []
@@ -23,7 +23,7 @@ module FixnumCentipad
     private
 
     def enqueue_root_node
-      @work << Burrito.new(@input.shift.to_s, @input, @opts)
+      @work << Burrito.new(past: @input.shift.to_s, future: @input, **@opts)
     end
   end
 end

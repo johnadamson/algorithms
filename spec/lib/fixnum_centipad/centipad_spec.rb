@@ -5,7 +5,7 @@ require 'fixnum_centipad/operator'
 module FixnumCentipad
   RSpec.describe Centipad do
     let(:centipad){
-      Centipad.new range
+      Centipad.new range: range, equals: 100
     }
 
     describe '#solve' do

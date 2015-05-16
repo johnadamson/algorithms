@@ -2,12 +2,12 @@ module FixnumCentipad
   class Burrito
     attr_reader :past
 
-    def initialize(past, future, opts={})
+    def initialize(past:, future:, operators: nil, equals: 100)
       @past      = past
       @cursor    = future.shift.to_s
       @future    = future
-      @operators = opts[:operators]
-      @equals    = opts[:equals] || 100
+      @operators = operators
+      @equals    = equals
     end
 
     def children
@@ -16,15 +16,16 @@ module FixnumCentipad
       else
         operators.map do |operator|
           Burrito.new(
-            operator.operate(past, @cursor),
-            @future.dup
+            past: operator.operate(past, @cursor),
+            future: @future.dup,
+            equals: @equals
           )
         end
       end
     end
 
     def solution?
-      solution == equals && leaf?
+      solution == @equals && leaf?
     end
 
     private
@@ -39,10 +40,6 @@ module FixnumCentipad
 
     def solution
       eval @past
-    end
-
-    def equals
-      @equals
     end
   end
 end
