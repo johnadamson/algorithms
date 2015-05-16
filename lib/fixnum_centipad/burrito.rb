@@ -7,6 +7,7 @@ module FixnumCentipad
       @cursor    = future.shift.to_s
       @future    = future
       @operators = opts[:operators]
+      @equals    = opts[:equals] || 100
     end
 
     def children
@@ -23,7 +24,7 @@ module FixnumCentipad
     end
 
     def solution?
-      solution == 100 && leaf?
+      solution == equals && leaf?
     end
 
     private
@@ -38,6 +39,10 @@ module FixnumCentipad
 
     def solution
       eval @past
+    end
+
+    def equals
+      @equals
     end
   end
 end
