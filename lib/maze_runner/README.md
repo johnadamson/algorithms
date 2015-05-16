@@ -3,11 +3,13 @@ Maze Runner
 
 Given a square matrix of random integers between 0 and 9, eg
 
+```
   4 5 3 0 1
   2 4 8 9 8
   7 2 2 0 1
   4 3 0 2 9
   1 9 4 7 2
+```
 
 Create a solution that will find the longest path through the matrix where each
 subsequent number is equal or greater than the previous.
