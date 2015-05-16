@@ -19,7 +19,7 @@ module FixnumCentipad
   end
 
 
-  class World
+  class Burrito
     OPERATORS = Plus.new, Minus.new, Concat.new
 
     def initialize(past, future)
@@ -34,7 +34,7 @@ module FixnumCentipad
       else
         OPERATORS.map do |operator|
           new_past = operator.operate(@past, @cursor)
-          World.new(new_past, @future.dup)
+          Burrito.new(new_past, @future.dup)
         end
       end
     end
@@ -66,9 +66,9 @@ module FixnumCentipad
     def solve
       enqueue_root_node
 
-      while(world = @work.shift) do
-        @work.concat world.children
-        @solutions << world if world.solution?
+      while(burrito = @work.shift) do
+        @work.concat burrito.children
+        @solutions << burrito if burrito.solution?
       end
 
       @solutions
@@ -77,7 +77,7 @@ module FixnumCentipad
     private
 
     def enqueue_root_node
-      @work << World.new(@input.shift.to_s, @input)
+      @work << Burrito.new(@input.shift.to_s, @input)
     end
   end
 end
