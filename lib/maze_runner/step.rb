@@ -1,4 +1,4 @@
-module Graph
+module MazeRunner
   class Step
     attr_reader :cursor, :grid, :path
 

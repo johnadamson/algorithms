@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'graph/node'
+require 'maze_runner/node'
 
-module Graph
-  describe Node do
+module MazeRunner
+  RSpec.describe Node do
     it 'has a position' do
       # given
       node = Node.new(1, 2)

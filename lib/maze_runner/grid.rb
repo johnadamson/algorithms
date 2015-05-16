@@ -1,10 +1,12 @@
-module Graph
+require 'set'
+
+module MazeRunner
   class Grid
     attr_reader :nodes
 
     def initialize(values)
       @values = values
-      @nodes  = Set.new
+      @nodes  = ::Set.new
 
       values.each_with_index do |row, i|
         row.each_with_index do |value, j|

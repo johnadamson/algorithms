@@ -1,11 +1,11 @@
 require 'spec_helper'
-require 'graph/node'
-require 'graph/grid'
-require 'graph/step'
-require 'graph/traverse'
+require 'maze_runner/node'
+require 'maze_runner/grid'
+require 'maze_runner/step'
+require 'maze_runner/traverse'
 
-module Graph
-  describe Traverse do
+module MazeRunner
+  RSpec.describe Traverse do
     let(:grid){
       Grid.new values
     }
@@ -18,7 +18,7 @@ module Graph
     }
     it 'traverses the grid' do
       # when
-      length = Traverse.new(grid).longest_sequence
+      length = Traverse.new(grid).longest_path.length
 
       expect(length).to eq 9
     end
@@ -34,7 +34,7 @@ module Graph
 
       it 'traverses the grid' do
         # when
-        length = Traverse.new(grid).longest_sequence
+        length = Traverse.new(grid).longest_path.length
 
         expect(length).to eq 7
       end

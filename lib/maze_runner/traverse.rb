@@ -1,4 +1,4 @@
-module Graph
+module MazeRunner
   class Traverse
     attr_reader :grid
 
@@ -7,7 +7,7 @@ module Graph
       @work = []
     end
 
-    def longest_sequence
+    def longest_path
       enqueue_root_nodes
 
       longest = @work.first
@@ -15,7 +15,8 @@ module Graph
         @work.concat root.next
         longest = root if root.path.length > longest.path.length
       end
-      longest.path.length
+
+      longest.path.map(&:value)
     end
 
     private
@@ -27,3 +28,4 @@ module Graph
     end
   end
 end
+

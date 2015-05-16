@@ -1,10 +1,10 @@
 require 'spec_helper'
-require 'graph/node'
-require 'graph/grid'
-require 'graph/step'
+require 'maze_runner/node'
+require 'maze_runner/grid'
+require 'maze_runner/step'
 
-module Graph
-  describe Step do
+module MazeRunner
+  RSpec.describe Step do
 
     describe '#next' do
       it 'creates 1 step for each neighboring node' do

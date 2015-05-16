@@ -1,4 +1,4 @@
-module Graph
+module MazeRunner
   class Node
     attr_reader :x, :y, :value
 

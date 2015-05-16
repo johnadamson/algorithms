@@ -1,8 +1,8 @@
-require 'graph/grid'
-require 'graph/node'
+require 'maze_runner/grid'
+require 'maze_runner/node'
 
-module Graph
-  describe Grid do
+module MazeRunner
+  RSpec.describe Grid do
     it 'creates nodes' do
       # given
       nodes = [
