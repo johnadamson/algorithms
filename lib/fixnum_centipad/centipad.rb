@@ -1,5 +1,6 @@
 module FixnumCentipad
   class Centipad
+    attr_reader :solutions
 
     def initialize(range)
       @input     = range.to_a
