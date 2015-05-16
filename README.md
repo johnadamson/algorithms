@@ -6,5 +6,8 @@ bundle
 
 # Test
 bundle exec rspec
+
+# Explore
+bundle exec rake console
 ```
 
