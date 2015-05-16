@@ -4,19 +4,19 @@ module FixnumCentipad
 
     def initialize(past:, future:, operators: nil, equals: 100)
       @past      = past
-      @cursor    = future.shift.to_s
+      @cursor    = future.shift
       @future    = future
       @operators = operators
       @equals    = equals
     end
 
     def children
-      if @cursor.empty?
+      if leaf?
         []
       else
         operators.map do |operator|
           Burrito.new(
-            past: operator.operate(past, @cursor),
+            past: operator.operate(@past, @cursor),
             future: @future.dup,
             equals: @equals
           )
@@ -25,13 +25,13 @@ module FixnumCentipad
     end
 
     def solution?
-      solution == @equals && leaf?
+      leaf? && solution == @equals
     end
 
     private
 
     def leaf?
-      @cursor.empty?
+      @cursor.nil?
     end
 
     def operators
