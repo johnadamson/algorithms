@@ -1,4 +1,4 @@
-module FixnumCentipad
+module FixnumCentipede
   module Operator
     def self.operators
       @operators ||= []

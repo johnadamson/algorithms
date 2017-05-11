@@ -1,6 +1,6 @@
-require 'fixnum_centipad/operator/base'
+require 'fixnum_centipede/operator/base'
 
-module FixnumCentipad
+module FixnumCentipede
   module Operator
     RSpec.describe Base do
 

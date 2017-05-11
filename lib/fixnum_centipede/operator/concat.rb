@@ -1,4 +1,4 @@
-module FixnumCentipad
+module FixnumCentipede
   module Operator
     class Concat < Base
       def operate(a, b)

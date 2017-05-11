@@ -1,5 +1,5 @@
-module FixnumCentipad
-  class Burrito
+module FixnumCentipede
+  class Node
     attr_reader :past
 
     def initialize(past:, future:, operators: nil, equals: 100)
@@ -15,7 +15,7 @@ module FixnumCentipad
         []
       else
         operators.map do |operator|
-          Burrito.new(
+          Node.new(
             past: operator.operate(@past, @cursor),
             future: @future.dup,
             equals: @equals

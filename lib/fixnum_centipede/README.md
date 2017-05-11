@@ -1,4 +1,4 @@
-### Fixnum Centipad
+### Fixnum Centipede
 
 ```
 Given a range of Fixnum (1..9)
@@ -7,16 +7,14 @@ and combining near terms into a single Fixnum, eg. 12 345 67
 How many ways can you create the Fixnum 100?
   * A Fixnum cannot be used twice.
   * The order must be maintained 1 to 9.
-
-Also see https://www.youtube.com/watch?v=sglZGSwK6ow
 ```
 
 Example
 ```ruby
->> centipad = FixnumCentipad::Centipad.new(1..9)
-=> #<FixnumCentipad::Centipad:0x007f89410a5ec0 @input=[1, 2, 3, 4, 5, 6, 7, 8, 9], @solutions=[], @work=[]>
+>> centipede = FixnumCentipede::Centipede.new(1..9)
+=> #<FixnumCentipede::Centipede:0x007f89410a5ec0 @input=[1, 2, 3, 4, 5, 6, 7, 8, 9], @solutions=[], @work=[]>
 
->> centipad.solve.map(&:path)
+>> centipede.solve.map(&:path)
 => ["1+2+3-4+5+6+78+9",
     "1+2+34-5+67-8+9",
     "1+23-4+5+6+78-9",
@@ -31,13 +29,13 @@ Example
     "3+4+5+6-7+89",
     "34+56-7+8+9"]
 
->> centipad.solutions.count
+>> centipede.solutions.count
 => 13
 ```
 
 Dynamically add new stratagies
 ```ruby
->> module FixnumCentipad
+>> module FixnumCentipede
 *> module Operator
 *> class Multiply < Base
 *> def operate(a,b)
@@ -48,10 +46,10 @@ Dynamically add new stratagies
 *> end
 => :operate
 
->> centipad = FixnumCentipad::Centipad.new(1..9)
-=> #<FixnumCentipad::Centipad:0x007fd513a17710 @input=[1, 2, 3, 4, 5, 6, 7, 8, 9], @solutions=[], @work=[]>
+>> centipede = FixnumCentipede::Centipede.new(1..9)
+=> #<FixnumCentipede::Centipede:0x007fd513a17710 @input=[1, 2, 3, 4, 5, 6, 7, 8, 9], @solutions=[], @work=[]>
 
->> centipad.solve.map(&:past)
+>> centipede.solve.map(&:past)
 => ["1+2+3+4+5+6+7+8*9",
     "1+2+3-4+5+6+78+9",
     "1+2+3-45+67+8*9",
@@ -135,10 +133,10 @@ Dynamically add new stratagies
 Set a different equals target
 ```ruby
 
->> centipad = FixnumCentipad::Centipad.new(1..9, equals: 50)
-=> #<FixnumCentipad::Centipad:0x007fea7b0b20d0 @input=[1, 2, 3, 4, 5, 6, 7, 8, 9], @solutions=[], @work=[], @opts={:equals=>50}>
+>> centipede = FixnumCentipede::Centipede.new(1..9, equals: 50)
+=> #<FixnumCentipede::Centipede:0x007fea7b0b20d0 @input=[1, 2, 3, 4, 5, 6, 7, 8, 9], @solutions=[], @work=[], @opts={:equals=>50}>
 
->> centipad.solve.map(&:past)
+>> centipede.solve.map(&:past)
 => ["1+2+3-4+5+6+78+9",
     "1+2+34-5+67-8+9",
     "1+23-4+5+6+78-9",

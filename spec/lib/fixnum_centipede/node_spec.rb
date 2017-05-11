@@ -1,11 +1,11 @@
-require 'fixnum_centipad/burrito'
+require 'fixnum_centipede/node'
 
-module FixnumCentipad
-  RSpec.describe Burrito do
+module FixnumCentipede
+  RSpec.describe Node do
 
     describe '#children' do
       subject {
-        Burrito.new past: past, future: future, operators: operators
+        Node.new past: past, future: future, operators: operators
       }
       let(:past){
         '1'
@@ -24,7 +24,7 @@ module FixnumCentipad
         end
       }
 
-      it 'the next burrito in the chain' do
+      it 'the next node in the chain' do
         # when
         children = subject.children
 
@@ -42,7 +42,7 @@ module FixnumCentipad
 
     describe '#solution?' do
       subject {
-        Burrito.new past: past, future: future
+        Node.new past: past, future: future
       }
       let(:past){ '100' }
       let(:future){ [] }

@@ -1,11 +1,11 @@
-require 'fixnum_centipad/centipad'
-require 'fixnum_centipad/burrito'
-require 'fixnum_centipad/operator'
+require 'fixnum_centipede/centipede'
+require 'fixnum_centipede/node'
+require 'fixnum_centipede/operator'
 
-module FixnumCentipad
-  RSpec.describe Centipad do
-    let(:centipad){
-      Centipad.new range: range, equals: 100
+module FixnumCentipede
+  RSpec.describe Centipede do
+    let(:centipede){
+      Centipede.new range: range, equals: 100
     }
 
     describe '#solve' do
@@ -19,7 +19,7 @@ module FixnumCentipad
 
         it 'finds the solutions' do
           # when
-          result = centipad.solve
+          result = centipede.solve
 
           expect(result.count).to eq solutions
         end
@@ -35,7 +35,7 @@ module FixnumCentipad
 
         it 'finds the solutions' do
           # when
-         result = centipad.solve
+         result = centipede.solve
 
           expect(result.count).to eq solutions
         end

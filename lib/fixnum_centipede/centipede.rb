@@ -1,5 +1,5 @@
-module FixnumCentipad
-  class Centipad
+module FixnumCentipede
+  class Centipede
     attr_reader :solutions
 
     def initialize(range:, **opts)
@@ -12,9 +12,9 @@ module FixnumCentipad
     def solve
       enqueue_root_node
 
-      while(burrito = @work.shift) do
-        @work.concat burrito.children
-        @solutions << burrito if burrito.solution?
+      while(node = @work.shift) do
+        @work.concat node.children
+        @solutions << node if node.solution?
       end
 
       @solutions
@@ -23,7 +23,7 @@ module FixnumCentipad
     private
 
     def enqueue_root_node
-      @work << Burrito.new(past: @input.shift.to_s, future: @input, **@opts)
+      @work << Node.new(past: @input.shift.to_s, future: @input, **@opts)
     end
   end
 end
